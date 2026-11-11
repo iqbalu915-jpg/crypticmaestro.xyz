@@ -12426,7 +12426,7 @@ a {
   width: var(--ticker-card-width);
   min-width: var(--ticker-card-width);
   animation: none;
-  translate: none;
+  transform: none;
 }
 .site-shell .ticker-toolbar {
   justify-content: flex-end;
@@ -12485,10 +12485,23 @@ a {
 }
 @keyframes token-conveyor-left {
   0% {
-    translate: calc((var(--ticker-count) - 1) * var(--ticker-step)) 0;
+    transform: translateX(calc((var(--ticker-count) - 1) * var(--ticker-step)));
   }
   to {
-    translate: calc(-1 * var(--ticker-step)) 0;
+    transform: translateX(calc(-1 * var(--ticker-step)));
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .story-progress-chart[data-in-view="true"] .milestone-bar-fill {
+    animation: milestone-bar-reveal 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+}
+@keyframes milestone-bar-reveal {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
   }
 }
 @media print {
@@ -12500,7 +12513,7 @@ a {
   .site-shell .story-ticker .story-jump-list > a {
     break-inside: avoid;
     animation: none;
-    translate: none;
+    transform: none;
   }
   .site-shell .story-ticker .ticker-toolbar {
     display: none;

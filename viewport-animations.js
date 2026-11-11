@@ -1,0 +1,1 @@
+(()=>{const e=document.querySelectorAll(".story-progress-chart");if(!("IntersectionObserver"in window)){e.forEach(e=>e.dataset.inView="true");return}const t=new IntersectionObserver((e,n)=>{e.forEach(e=>{e.isIntersecting&&(e.target.dataset.inView="true",n.unobserve(e.target))})},{rootMargin:"160px 0px"});e.forEach(e=>t.observe(e))})();

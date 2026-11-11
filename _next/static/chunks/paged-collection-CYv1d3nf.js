@@ -1050,6 +1050,7 @@ function Ce({
   entries: a,
   children: o,
 }) {
+  e === `call-stories` && (i = 10);
   let [s, c] = (0, N.useState)(0),
     [l, u] = (0, N.useState)(!1),
     [d, f] = (0, N.useState)(null),
@@ -1338,13 +1339,12 @@ function Ce({
                 }),
               ],
             }),
-          v.map((e, t) =>
+          [...E].map((t) =>
             (0, P.jsxs)(
               `div`,
               {
                 className: `collection-item`,
                 "data-collection-index": t,
-                hidden: !E.has(t),
                 children: [
                   a &&
                     E.has(t) &&
@@ -1366,7 +1366,7 @@ function Ce({
                         h.ids.includes(H(n[t])) ? `Saved` : `Save story`,
                       ],
                     }),
-                  d === t ? null : e,
+                  d === t ? null : v[t],
                 ],
               },
               n[t]
